@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// Define a flag to specify the CSV file name.
-	csvFile := flag.String("csv", "proble.csv", "a csv file format of a question")
+	csvFile := flag.String("csv", "problem.csv", "a csv file format of a question")
 	flag.Parse()
 
 	// Open the CSV file.
@@ -48,6 +48,9 @@ func main() {
 			correct++
 		}
 	}
+
+	// Print the quiz results.
+	fmt.Printf("You got %d out of %d questions correct.\n", correct, total)
 
 }
 
