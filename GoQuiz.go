@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -22,6 +23,32 @@ func main() {
 	// Parse the CSV File
 	reader := csv.NewReader(file)
 	lines, err := reader.ReadAll()
+
+	if err != nil {
+		exit("Failed to parse CSV file")
+	}
+
+	// Intialize var for tracking quiz results
+	correct := 0
+	total := len(lines)
+
+	for _, line := range lines {
+		question := line[0]
+		expectedAnswer := strings.TrimSpace(line[1])
+
+		fmt.Printf("Question: %s\nYour answer: ", question)
+
+		var userAnswer string
+		_, err := fmt.Scan(&userAnswer)
+		if err != nil {
+			exit("Error reading user input.")
+		}
+
+		if userAnswer == expectedAnswer {
+			correct++
+		}
+	}
+
 }
 
 func exit(msg string) {
