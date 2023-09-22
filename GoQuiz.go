@@ -13,8 +13,10 @@ func main() {
 	csvFile := flag.String("csv", "problem.csv", "a csv file format of a question")
 	flag.Parse()
 
-	// Open the CSV file.
+	// Open the CSV file, get the value not the pointer
 	file, err := os.Open(*csvFile)
+
+	// using exit function for CSV can't Open
 	if err != nil {
 		exit(fmt.Sprintf("Failed to open the CSV file: %s", *csvFile))
 	}
