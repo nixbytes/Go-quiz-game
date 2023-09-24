@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func main() {
@@ -31,29 +30,48 @@ func main() {
 	}
 
 	// Intialize var for tracking quiz results
-	correct := 0
-	total := len(lines)
+	//	correct := 0
+	//	total := len(lines)
 
-	for _, line := range lines {
-		question := line[0]
-		expectedAnswer := strings.TrimSpace(line[1])
+	/*
+	   	for _, line := range lines {
+	   		question := line[0]
+	   		expectedAnswer := strings.TrimSpace(line[1])
 
-		fmt.Printf("Question: %s\nYour answer: ", question)
+	   		fmt.Printf("Question: %s\nYour answer: ", question)
 
-		var userAnswer string
-		_, err := fmt.Scan(&userAnswer)
-		if err != nil {
-			exit("Error reading user input.")
+	   		var userAnswer string
+	   		_, err := fmt.Scan(&userAnswer)
+	   		if err != nil {
+	   			exit("Error reading user input.")
+	   		}
+
+	   		if userAnswer == expectedAnswer {
+	   			correct++
+	   		}
+	   	}
+
+	   // Print the quiz results.
+	   fmt.Printf("You got %d out of %d questions correct.\n", correct, total)
+	*/
+}
+func parseLines(lines [][]string) []problem {
+
+	returnval := make([]problem, len(lines))
+
+	for i, line := range lines {
+		returnval[i] := problem{
+			question: line[0],
+			answer:   line[1],
 		}
 
-		if userAnswer == expectedAnswer {
-			correct++
-		}
 	}
 
-	// Print the quiz results.
-	fmt.Printf("You got %d out of %d questions correct.\n", correct, total)
+}
 
+type problem struct {
+	question string
+	answer   string
 }
 
 func exit(msg string) {
