@@ -29,6 +29,8 @@ func main() {
 		exit("Failed to parse CSV file")
 	}
 
+	problems := parseLines(lines)
+
 	// Intialize var for tracking quiz results
 	//	correct := 0
 	//	total := len(lines)
@@ -55,6 +57,7 @@ func main() {
 	   fmt.Printf("You got %d out of %d questions correct.\n", correct, total)
 	*/
 }
+
 func parseLines(lines [][]string) []problem {
 
 	returnval := make([]problem, len(lines))
