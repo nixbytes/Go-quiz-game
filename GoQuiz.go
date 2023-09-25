@@ -63,13 +63,13 @@ func parseLines(lines [][]string) []problem {
 	returnval := make([]problem, len(lines))
 
 	for i, line := range lines {
-		returnval[i] := problem{
+		returnval[i] = problem{
 			question: line[0],
 			answer:   line[1],
 		}
 
 	}
-
+	return returnval
 }
 
 type problem struct {
