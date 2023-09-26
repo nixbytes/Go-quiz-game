@@ -30,6 +30,16 @@ func main() {
 	}
 
 	problems := parseLines(lines)
+	fmt.Println(problems)
+	for i, p := range problems {
+		fmt.Printf("Problem #%d: %s = \n", i+1, p.q)
+		var answer string
+		fmt.Scan("%s\n", &anwser)
+		if anwser == p.a {
+			fmt.PrintLn("Correct Anwser!")
+
+		}
+	}
 
 	// Intialize var for tracking quiz results
 	//	correct := 0
