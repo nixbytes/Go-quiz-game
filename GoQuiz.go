@@ -30,17 +30,19 @@ func main() {
 	}
 
 	problems := parseLines(lines)
-	fmt.Println(problems)
+	//	fmt.Println(problems)
+	correct := 0
 
 	for i, p := range problems {
-		fmt.Printf("Problem #%d: %s = \n", i+1, p.q)
+		fmt.Printf("Problem #%d: %s = \n", i+1, p.question)
 		var answer string
-		fmt.Scan("%s\n", &anwser)
-		if anwser == p.a {
-			fmt.PrintLn("Correct Anwser!")
-
+		fmt.Scanf("%s\n", &answer)
+		if answer == p.answer {
+			correct++
 		}
 	}
+
+	fmt.Printf("Score: %d Total Questions: %d", correct, len(problems))
 
 }
 
