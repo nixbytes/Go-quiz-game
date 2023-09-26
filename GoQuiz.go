@@ -31,6 +31,7 @@ func main() {
 
 	problems := parseLines(lines)
 	fmt.Println(problems)
+
 	for i, p := range problems {
 		fmt.Printf("Problem #%d: %s = \n", i+1, p.q)
 		var answer string
@@ -41,31 +42,6 @@ func main() {
 		}
 	}
 
-	// Intialize var for tracking quiz results
-	//	correct := 0
-	//	total := len(lines)
-
-	/*
-	   	for _, line := range lines {
-	   		question := line[0]
-	   		expectedAnswer := strings.TrimSpace(line[1])
-
-	   		fmt.Printf("Question: %s\nYour answer: ", question)
-
-	   		var userAnswer string
-	   		_, err := fmt.Scan(&userAnswer)
-	   		if err != nil {
-	   			exit("Error reading user input.")
-	   		}
-
-	   		if userAnswer == expectedAnswer {
-	   			correct++
-	   		}
-	   	}
-
-	   // Print the quiz results.
-	   fmt.Printf("You got %d out of %d questions correct.\n", correct, total)
-	*/
 }
 
 func parseLines(lines [][]string) []problem {
