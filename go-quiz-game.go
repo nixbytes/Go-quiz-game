@@ -48,7 +48,7 @@ func main() {
 	}
 
 	// Print the user's score and the total number of questions.
-	fmt.Printf("Score: %d Total Questions: %d", correct, len(problems))
+	fmt.Printf("Score: %d Total Questions: %d \n\n", correct, len(problems))
 }
 
 // parseLines converts a 2D slice of strings (CSV data) into a slice of problem structs.
